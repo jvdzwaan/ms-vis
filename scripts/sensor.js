@@ -15,18 +15,14 @@ d3.json("data/sensor.json", function(data) {
     var minDate = dateDim.bottom(1)[0].datetime;
     var maxDate = dateDim.top(1)[0].datetime;
 
-    console.log(dateDim.bottom(1))
+    var accelerationlineChart  = dc.lineChart("#chart-line-acceleration");
 
-    var hitslineChart  = dc.lineChart("#chart-line-hitsperday");
-
-    hitslineChart
-       .width(500).height(200)
+    accelerationlineChart
+       .width(700).height(200)
        .dimension(dateDim)
        .group(acceleration)
        .x(d3.time.scale().domain([minDate,maxDate]))
-       .brushOn(false)
-       .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5))
-       .yAxisLabel("Hits per day");
+       .yAxisLabel("Acceleration");
 
     dc.renderAll();
 
