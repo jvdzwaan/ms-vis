@@ -4,7 +4,7 @@
 ```
 git clone https://github.com/jvdzwaan/ms-vis.git
 cd ms-vis
-bower install dc.js
+bower install dcjs
 ```
 
 ## Run
