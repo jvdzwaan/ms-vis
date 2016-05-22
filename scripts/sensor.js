@@ -67,6 +67,7 @@ d3.json("data/sensor2.json", function(data) {
       .height(400)
       .dimension(activDim2)
       .group(activCount2)
+      // .ordering(function(d){ return -d.value; })
       // .xAxisLabel("seconden")
       ;
 
