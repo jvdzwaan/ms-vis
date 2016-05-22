@@ -1,0 +1,44 @@
+[ {
+  "date" : "20160522",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20160521T214431+0200",
+    "endTime" : "20160522T091924+0200",
+    "place" : {
+      "id" : 271895212,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 51.979071,
+        "lon" : 5.6432445
+      }
+    },
+    "lastUpdate" : "20160522T075234Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160522T094322+0200",
+    "endTime" : "20160522T101723+0200",
+    "place" : {
+      "id" : 271895212,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 51.979071,
+        "lon" : 5.6432445
+      }
+    },
+    "lastUpdate" : "20160522T083249Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160522T102114+0200",
+    "endTime" : "20160522T103247+0200",
+    "place" : {
+      "id" : 272022661,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 51.978822,
+        "lon" : 5.6435353
+      }
+    },
+    "lastUpdate" : "20160522T083249Z"
+  } ],
+  "lastUpdate" : "20160522T083249Z"
+} ]

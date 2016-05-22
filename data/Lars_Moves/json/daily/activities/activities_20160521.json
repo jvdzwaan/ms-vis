@@ -1,0 +1,151 @@
+[ {
+  "date" : "20160521",
+  "summary" : [ {
+    "activity" : "walking",
+    "group" : "walking",
+    "duration" : 1690.0,
+    "distance" : 1881.0,
+    "steps" : 2518
+  }, {
+    "activity" : "cycling",
+    "group" : "cycling",
+    "duration" : 1410.0,
+    "distance" : 4782.0
+  }, {
+    "activity" : "transport",
+    "group" : "transport",
+    "duration" : 5189.0,
+    "distance" : 112423.0
+  } ],
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20160521T162318+0200",
+    "endTime" : "20160521T173325+0200",
+    "activities" : [ {
+      "activity" : "walking",
+      "group" : "walking",
+      "manual" : false,
+      "startTime" : "20160521T162402+0200",
+      "endTime" : "20160521T162701+0200",
+      "duration" : 179.0,
+      "distance" : 202.0,
+      "steps" : 269
+    }, {
+      "activity" : "walking",
+      "group" : "walking",
+      "manual" : false,
+      "startTime" : "20160521T171550+0200",
+      "endTime" : "20160521T172424+0200",
+      "duration" : 514.0,
+      "distance" : 562.0,
+      "steps" : 750
+    } ],
+    "lastUpdate" : "20160521T155354Z"
+  }, {
+    "type" : "move",
+    "startTime" : "20160521T173325+0200",
+    "endTime" : "20160521T174606+0200",
+    "activities" : [ {
+      "activity" : "cycling",
+      "group" : "cycling",
+      "manual" : false,
+      "startTime" : "20160521T173325+0200",
+      "endTime" : "20160521T174606+0200",
+      "duration" : 761.0,
+      "distance" : 2252.0
+    } ],
+    "lastUpdate" : "20160521T155354Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160521T174607+0200",
+    "endTime" : "20160521T182533+0200",
+    "activities" : [ {
+      "activity" : "walking",
+      "group" : "walking",
+      "manual" : false,
+      "startTime" : "20160521T174607+0200",
+      "endTime" : "20160521T174845+0200",
+      "duration" : 158.0,
+      "distance" : 178.0,
+      "steps" : 237
+    }, {
+      "activity" : "walking",
+      "group" : "walking",
+      "manual" : false,
+      "startTime" : "20160521T180646+0200",
+      "endTime" : "20160521T181448+0200",
+      "duration" : 482.0,
+      "distance" : 541.0,
+      "steps" : 721
+    } ],
+    "lastUpdate" : "20160521T165319Z"
+  }, {
+    "type" : "move",
+    "startTime" : "20160521T182533+0200",
+    "endTime" : "20160521T183623+0200",
+    "activities" : [ {
+      "activity" : "cycling",
+      "group" : "cycling",
+      "manual" : false,
+      "startTime" : "20160521T182533+0200",
+      "endTime" : "20160521T183622+0200",
+      "duration" : 649.0,
+      "distance" : 2530.0
+    } ],
+    "lastUpdate" : "20160521T165319Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160521T183623+0200",
+    "endTime" : "20160521T201801+0200",
+    "activities" : [ {
+      "activity" : "walking",
+      "group" : "walking",
+      "manual" : false,
+      "startTime" : "20160521T183623+0200",
+      "endTime" : "20160521T183922+0200",
+      "duration" : 179.0,
+      "distance" : 201.0,
+      "steps" : 269
+    }, {
+      "activity" : "walking",
+      "group" : "walking",
+      "manual" : false,
+      "startTime" : "20160521T190938+0200",
+      "endTime" : "20160521T191219+0200",
+      "duration" : 161.0,
+      "distance" : 184.0,
+      "steps" : 246
+    } ],
+    "lastUpdate" : "20160521T205320Z"
+  }, {
+    "type" : "move",
+    "startTime" : "20160521T201801+0200",
+    "endTime" : "20160521T214430+0200",
+    "activities" : [ {
+      "activity" : "transport",
+      "group" : "transport",
+      "manual" : false,
+      "startTime" : "20160521T201801+0200",
+      "endTime" : "20160521T214430+0200",
+      "duration" : 5189.0,
+      "distance" : 112423.0
+    } ],
+    "lastUpdate" : "20160521T205320Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160521T214431+0200",
+    "endTime" : "20160522T091924+0200",
+    "activities" : [ {
+      "activity" : "walking",
+      "group" : "walking",
+      "manual" : false,
+      "startTime" : "20160521T214621+0200",
+      "endTime" : "20160521T214638+0200",
+      "duration" : 17.0,
+      "distance" : 13.0,
+      "steps" : 26
+    } ],
+    "lastUpdate" : "20160522T075234Z"
+  } ],
+  "lastUpdate" : "20160522T075234Z"
+} ]
