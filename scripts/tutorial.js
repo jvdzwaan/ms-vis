@@ -62,7 +62,7 @@ hitslineChart
    .x(d3.time.scale().domain([minDate,maxDate]))
    .brushOn(false)
    .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5))
-   .yAxisLabel("Hits per day");
+   .yAxisLabel('Hits per day');
 
 var yearDim  = ndx.dimension(function(d) {return +d.Year;});
 var year_total = yearDim.group().reduceSum(function(d) {return d.total;});

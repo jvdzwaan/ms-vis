@@ -1,0 +1,100 @@
+[ {
+  "date" : "20160521",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20160521T162318+0200",
+    "endTime" : "20160521T173325+0200",
+    "place" : {
+      "id" : 271797721,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 52.340106,
+        "lon" : 4.8223495
+      }
+    },
+    "lastUpdate" : "20160521T155354Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160521T174607+0200",
+    "endTime" : "20160521T182533+0200",
+    "place" : {
+      "id" : 271819391,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 52.340067,
+        "lon" : 4.8215231
+      }
+    },
+    "lastUpdate" : "20160521T165319Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160521T183623+0200",
+    "endTime" : "20160521T201801+0200",
+    "place" : {
+      "id" : 271767117,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 52.340063,
+        "lon" : 4.8210036
+      }
+    },
+    "lastUpdate" : "20160521T205320Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160521T214431+0200",
+    "endTime" : "20160522T091924+0200",
+    "place" : {
+      "id" : 271895212,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 51.979071,
+        "lon" : 5.6432445
+      }
+    },
+    "lastUpdate" : "20160522T075234Z"
+  } ],
+  "lastUpdate" : "20160522T075234Z"
+}, {
+  "date" : "20160522",
+  "segments" : [ {
+    "type" : "place",
+    "startTime" : "20160521T214431+0200",
+    "endTime" : "20160522T091924+0200",
+    "place" : {
+      "id" : 271895212,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 51.979071,
+        "lon" : 5.6432445
+      }
+    },
+    "lastUpdate" : "20160522T075234Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160522T094322+0200",
+    "endTime" : "20160522T101723+0200",
+    "place" : {
+      "id" : 271895212,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 51.979071,
+        "lon" : 5.6432445
+      }
+    },
+    "lastUpdate" : "20160522T083249Z"
+  }, {
+    "type" : "place",
+    "startTime" : "20160522T102114+0200",
+    "endTime" : "20160522T103247+0200",
+    "place" : {
+      "id" : 272022661,
+      "type" : "unknown",
+      "location" : {
+        "lat" : 51.978822,
+        "lon" : 5.6435353
+      }
+    },
+    "lastUpdate" : "20160522T083249Z"
+  } ],
+  "lastUpdate" : "20160522T083249Z"
+} ]
