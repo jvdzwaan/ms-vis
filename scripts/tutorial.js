@@ -50,7 +50,7 @@ var status_200=dateDim.group().reduceSum(function(d) {return d.http_200;});
 var status_302=dateDim.group().reduceSum(function(d) {return d.http_302;});
 var status_404=dateDim.group().reduceSum(function(d) {return d.http_404;});
 
-var hitslineChart  = dc.lineChart("#chart-line-hitsperday");
+var hitslineChart  = dc.lineChart("#chart-line-hitsperday-tutorial");
 
 hitslineChart
    .width(500).height(200)
@@ -60,14 +60,14 @@ hitslineChart
    .stack(status_404,"404")
    .renderArea(true)
    .x(d3.time.scale().domain([minDate,maxDate]))
-   .brushOn(false)
+   // .brushOn(false)
    .legend(dc.legend().x(50).y(10).itemHeight(13).gap(5))
    .yAxisLabel('Hits per day');
 
 var yearDim  = ndx.dimension(function(d) {return +d.Year;});
 var year_total = yearDim.group().reduceSum(function(d) {return d.total;});
 
-var chartringyear = dc.pieChart("#chart-ring-year");
+var chartringyear = dc.pieChart("#chart-ring-year-tutorial");
 
 chartringyear
   .width(200).height(200)
@@ -75,7 +75,7 @@ chartringyear
   .dimension(yearDim)
   .group(year_total);
 
-var datatable = dc.dataTable("#dc-data-table");
+var datatable = dc.dataTable("#dc-data-table-tutorial");
 datatable
     .dimension(dateDim)
     .group(function(d) {return d.Year;})
@@ -87,5 +87,56 @@ datatable
         function(d) {return d.http_404;},
         function(d) {return d.total;}
     ]);
+
+
+// from sensor.js:
+
+d3.json("data/sensor.json", function(data) {
+    console.log(data);
+
+    var ndx = crossfilter(data);
+
+    var parseDate = d3.time.format("%Y-%m-%d %H:%M:%S").parse;
+
+    data.forEach(function(d) {
+      d.datetime = parseDate(d.datetime);
+      // d.Year=d.datetime.getFullYear();
+      d.activity = d.Activity;
+    });
+
+    var dateDim = ndx.dimension(function(d) {return d.datetime;});
+    var acceleration = dateDim.group().reduceSum(function(d) {return d.acceleration;});
+
+    var minDate = dateDim.bottom(1)[0].datetime;
+    var maxDate = dateDim.top(1)[0].datetime;
+
+    var accelerationlineChart  = dc.lineChart("#chart-line-acceleration");
+
+    accelerationlineChart
+       .width(700).height(200)
+       .dimension(dateDim)
+       .group(acceleration)
+       .x(d3.time.scale().domain([minDate,maxDate]))
+       .yAxisLabel("Acceleration");
+
+    var chartringyear = dc.rowChart("#chart-ring-year");
+
+    var activDim = ndx.dimension(function(d) {return d.activity;});
+    var activCount = activDim.group().reduceSum(function(d) {return 1;});
+    // var yearDim  = ndx.dimension(function(d) {return +d.Year;});
+    // var year_total = yearDim.group().reduceSum(function(d) {return d.total;});
+
+    chartringyear
+      .width(400)
+      .height(200)
+      // .innerRadius(50)
+      .dimension(activDim)
+      .group(activCount)
+      ;
+
+    dc.renderAll();
+
+});
+
 
 dc.renderAll();
