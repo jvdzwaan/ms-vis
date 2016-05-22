@@ -1,0 +1,41 @@
+[ {
+  "date" : "20160521",
+  "summary" : [ {
+    "activity" : "walking",
+    "group" : "walking",
+    "duration" : 1690.0,
+    "distance" : 1881.0,
+    "steps" : 2518
+  }, {
+    "activity" : "cycling",
+    "group" : "cycling",
+    "duration" : 1410.0,
+    "distance" : 4782.0
+  }, {
+    "activity" : "transport",
+    "group" : "transport",
+    "duration" : 5189.0,
+    "distance" : 112423.0
+  } ],
+  "lastUpdate" : "20160522T075234Z"
+}, {
+  "date" : "20160522",
+  "summary" : [ {
+    "activity" : "walking",
+    "group" : "walking",
+    "duration" : 511.0,
+    "distance" : 470.0,
+    "steps" : 713
+  }, {
+    "activity" : "transport",
+    "group" : "transport",
+    "duration" : 1438.0,
+    "distance" : 3636.0
+  }, {
+    "activity" : "cycling",
+    "group" : "cycling",
+    "duration" : 230.0,
+    "distance" : 508.0
+  } ],
+  "lastUpdate" : "20160522T083249Z"
+} ]
