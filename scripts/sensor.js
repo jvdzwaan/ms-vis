@@ -7,6 +7,7 @@ d3.json("data/sensor.json", function(data) {
 
     data.forEach(function(d) {
     	d.datetime = parseDate(d.datetime);
+      d.activity = d.Activity;
     });
 
     var dateDim = ndx.dimension(function(d) {return d.datetime;});
@@ -23,6 +24,28 @@ d3.json("data/sensor.json", function(data) {
        .group(acceleration)
        .x(d3.time.scale().domain([minDate,maxDate]))
        .yAxisLabel("Acceleration");
+
+    var chartringyear = dc.pieChart("#chart-ring-year");
+
+    var activDim = ndx.dimension(function(d) {return d.activity;});
+    var activCount = activDim.group().reduceSum(function(d) {return 1;});
+
+    chartringyear
+      .width(200)
+      .height(200)
+      .innerRadius(50)
+      .dimension(activDim)
+      .group(activCount)
+      ;
+
+    var chartrowyear = dc.rowChart("#chart-row-year");
+
+    chartrowyear
+      .width(900)
+      .height(200)
+      .dimension(activDim)
+      .group(activCount)
+      ;
 
     dc.renderAll();
 
