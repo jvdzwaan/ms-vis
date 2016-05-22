@@ -1,4 +1,4 @@
-d3.json("data/sensor.json", function(data) {
+d3.json("data/sensor2.json", function(data) {
     console.log(data);
 
     var ndx = crossfilter(data);
@@ -23,7 +23,24 @@ d3.json("data/sensor.json", function(data) {
        .dimension(dateDim)
        .group(acceleration)
        .x(d3.time.scale().domain([minDate,maxDate]))
-       .yAxisLabel("Acceleration");
+       .yAxisLabel("Acceleration")
+       ;
+
+    var anglex = dateDim.group().reduceSum(function(d) {return d.anglex;});
+    var angley = dateDim.group().reduceSum(function(d) {return d.angley;});
+    var anglez = dateDim.group().reduceSum(function(d) {return d.anglez;});
+
+    var angleLineChart  = dc.lineChart("#chart-line-anglex");
+
+    angleLineChart
+       .width(700).height(200)
+       .dimension(dateDim)
+       .group(anglex, 'x')
+       .stack(angley, 'y')
+       .stack(anglez, 'z')
+       .x(d3.time.scale().domain([minDate,maxDate]))
+       .yAxisLabel("Angles")
+       ;
 
     var chartringyear = dc.pieChart("#chart-ring-year");
 
@@ -46,8 +63,8 @@ d3.json("data/sensor.json", function(data) {
     var chartrowyear = dc.rowChart("#chart-row-year");
 
     chartrowyear
-      .width(900)
-      .height(200)
+      .width(600)
+      .height(400)
       .dimension(activDim2)
       .group(activCount2)
       // .xAxisLabel("seconden")
