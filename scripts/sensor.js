@@ -28,7 +28,12 @@ d3.json("data/sensor.json", function(data) {
     var chartringyear = dc.pieChart("#chart-ring-year");
 
     var activDim = ndx.dimension(function(d) {return d.activity;});
-    var activCount = activDim.group().reduceSum(function(d) {return 1;});
+    var activCount = activDim.group().reduceSum(function(d) {return 5;});
+
+    // we need two of them, each chart wants its own, otherwise they don't
+    // cross-update
+    var activDim2 = ndx.dimension(function(d) {return d.activity;});
+    var activCount2 = activDim.group().reduceSum(function(d) {return 5;});
 
     chartringyear
       .width(200)
@@ -43,9 +48,23 @@ d3.json("data/sensor.json", function(data) {
     chartrowyear
       .width(900)
       .height(200)
-      .dimension(activDim)
-      .group(activCount)
+      .dimension(activDim2)
+      .group(activCount2)
+      // .xAxisLabel("seconden")
       ;
+
+
+    var datatable = dc.dataTable("#dc-data-table");
+
+    datatable
+        .dimension(dateDim)
+        .group(function(d) {return d.datetime.getDate() + "/" + (d.datetime.getMonth() + 1) + "/" + d.datetime.getFullYear();})
+        // dynamic columns creation using an array of closures
+        .columns([
+            function(d) { return d.datetime.getDate() + "/" + (d.datetime.getMonth() + 1) + "/" + d.datetime.getFullYear(); },
+            function(d) { return d.datetime.getHours() + ":" + d.datetime.getMinutes() + ":" + d.datetime.getSeconds(); },
+            function(d) {return d.activity;}
+        ]);
 
     dc.renderAll();
 
