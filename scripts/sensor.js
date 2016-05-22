@@ -1,4 +1,4 @@
-d3.json("data/sensor.json", function(data) {
+d3.json("data/sensor2.json", function(data) {
     console.log(data);
 
     var ndx = crossfilter(data);
@@ -23,12 +23,34 @@ d3.json("data/sensor.json", function(data) {
        .dimension(dateDim)
        .group(acceleration)
        .x(d3.time.scale().domain([minDate,maxDate]))
-       .yAxisLabel("Acceleration");
+       .yAxisLabel("Acceleration")
+       ;
+
+    var anglex = dateDim.group().reduceSum(function(d) {return d.anglex;});
+    var angley = dateDim.group().reduceSum(function(d) {return d.angley;});
+    var anglez = dateDim.group().reduceSum(function(d) {return d.anglez;});
+
+    var angleLineChart  = dc.lineChart("#chart-line-anglex");
+
+    angleLineChart
+       .width(700).height(200)
+       .dimension(dateDim)
+       .group(anglex, 'x')
+       .stack(angley, 'y')
+       .stack(anglez, 'z')
+       .x(d3.time.scale().domain([minDate,maxDate]))
+       .yAxisLabel("Angles")
+       ;
 
     var chartringyear = dc.pieChart("#chart-ring-year");
 
     var activDim = ndx.dimension(function(d) {return d.activity;});
-    var activCount = activDim.group().reduceSum(function(d) {return 1;});
+    var activCount = activDim.group().reduceSum(function(d) {return 5;});
+
+    // we need two of them, each chart wants its own, otherwise they don't
+    // cross-update
+    var activDim2 = ndx.dimension(function(d) {return d.activity;});
+    var activCount2 = activDim.group().reduceSum(function(d) {return 5;});
 
     chartringyear
       .width(200)
@@ -41,11 +63,25 @@ d3.json("data/sensor.json", function(data) {
     var chartrowyear = dc.rowChart("#chart-row-year");
 
     chartrowyear
-      .width(900)
-      .height(200)
-      .dimension(activDim)
-      .group(activCount)
+      .width(600)
+      .height(400)
+      .dimension(activDim2)
+      .group(activCount2)
+      // .xAxisLabel("seconden")
       ;
+
+
+    var datatable = dc.dataTable("#dc-data-table");
+
+    datatable
+        .dimension(dateDim)
+        .group(function(d) {return d.datetime.getDate() + "/" + (d.datetime.getMonth() + 1) + "/" + d.datetime.getFullYear();})
+        // dynamic columns creation using an array of closures
+        .columns([
+            function(d) { return d.datetime.getDate() + "/" + (d.datetime.getMonth() + 1) + "/" + d.datetime.getFullYear(); },
+            function(d) { return d.datetime.getHours() + ":" + d.datetime.getMinutes() + ":" + d.datetime.getSeconds(); },
+            function(d) {return d.activity;}
+        ]);
 
     dc.renderAll();
 
